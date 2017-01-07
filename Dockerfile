@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian
+FROM alpine:latest
 FROM python:3.6
 
 RUN mkdir /app
