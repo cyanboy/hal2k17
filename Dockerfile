@@ -5,7 +5,6 @@ ADD requirements.txt /app
 
 WORKDIR /app
 
-RUN bash
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install python3
 RUN python3 -m pip install -r requirements.txt
