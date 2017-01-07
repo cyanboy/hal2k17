@@ -2,7 +2,7 @@ from slackclient import SlackClient
 import os, time, random, re
 
 
-responses = ['Yes?', 
+responses = set(['Yes?', 
     'I\'ve fought mudcrabs more fearsome than you',
     'No lollygagging',
     'What did you say to me?',
@@ -55,7 +55,7 @@ responses = ['Yes?',
     'What is my purpose?',
     'Oh my god',
     'Fueled by Satan™',
-    'Don\' even trip dawg']
+    'Don\' even trip dawg'])
 
 def main():
     slack_token = os.environ['TOKEN']
@@ -70,10 +70,10 @@ def main():
                 try:
                     if x['type'] == 'message':
                         if 'hal' in x['text'].lower():
-                            choice = random.choice(responses)
+                            choice = random.choice(list(responses))
                             sc.rtm_send_message(x['channel'], choice) 
                         else:
-                            responses.append(x['text'])
+                            responses.add(x['text'])
                 except:
                     print(x)
             time.sleep(1)
