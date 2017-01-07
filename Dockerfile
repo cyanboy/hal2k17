@@ -1,7 +1,10 @@
-FROM python:3.6-alpine 
+FROM resin/rpi-raspbian
+FROM python:3.6
 
-ADD bot.py /
-ADD requirements.txt /
+RUN mkdir /app
+ADD requirements.txt /app
+
+WORKDIR /app
 
 RUN python3 -m pip install -r requirements.txt
 
