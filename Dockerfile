@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM resin/rpi-raspbian
 
 RUN mkdir /app
 ADD requirements.txt /app
